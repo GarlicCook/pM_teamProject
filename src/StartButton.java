@@ -5,16 +5,24 @@ import java.awt.event.ActionListener;
 public class StartButton extends JButton implements ActionListener {
     SlidePuzzleBoard board;
     PuzzleFrame frame;
+    boolean NoneStart = true;
 
     public StartButton(SlidePuzzleBoard b, PuzzleFrame f) {
-        super("Start");
+        super("게임 시작!");
         board = b;
         frame = f;
         addActionListener(this);
     }
 
     public void actionPerformed(ActionEvent e) {
-        board.createPuzzleBoard();
-        frame.update();
+        if (NoneStart) {
+            board.createPuzzleBoard();
+            frame.update();
+            setText("다시 시작!");
+            NoneStart = false;
+        } else {
+            board.createPuzzleBoard();
+            frame.update();
+        }
     }
 }

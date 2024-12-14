@@ -51,7 +51,8 @@ public class SlidePuzzleBoard {
 					}
 				}
 			}
-		System.out.println(size +" " + I);
+
+		//System.out.println(size +" " + I); I가 짝수면 가능 I가 홀수면 불가능
 		if ((size % 2 == 1) && (I % 2 == 0))
 			return true;
 		else return (size % 2 == 0) && (I % 2 == 0);

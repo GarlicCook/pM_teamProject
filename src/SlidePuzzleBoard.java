@@ -16,7 +16,6 @@ public class SlidePuzzleBoard {
 	/** Constructor - SlidePuzzleBoard 초기 퍼즐 보드 설정 - 감소하는 순으로 나열 
 	 * @param s 퍼즐 보드 크기 */
 	public SlidePuzzleBoard(int s) {
-		do {
 			count += 1;
 			size = s;
 			// size x size 보드 만들기
@@ -31,7 +30,6 @@ public class SlidePuzzleBoard {
 			board[size - 1][size - 1] = null;
 			empty_row = size - 1;
 			empty_col = size - 1;
-		}while(!possibleTest());
     }
 	//가능 판정
 	public boolean possibleTest(){
@@ -40,20 +38,17 @@ public class SlidePuzzleBoard {
 		int I = 0;
 		for (int row = 0; row < size; row++)
 			for (int col = 0; col < size; col++){
-				if(board[row][col] == null)
-					continue;
-				int i = 0;
-				while(row - i >= 0) {
-					int j = 1;
-					while (col - j >= 0){
-						if (board[row - i][col - j] == null)
-							continue;
-						else if (board[row - i][col - j].faceValue() > board[row][col].faceValue()){
+				for(int i = row; i < size; i++) {
+					int j;
+					if (row == i)
+						j = col + 1;
+					else
+						j = 0;
+					for (; j < size; j++) {
+						if(board[i][j] == null);
+						else if (board[row][col].faceValue() > board[i][j].faceValue())
 							I += 1;
-						}
-						j += 1;
 					}
-					i += 1;
 				}
 			}
 		System.out.println(size +" " + I);

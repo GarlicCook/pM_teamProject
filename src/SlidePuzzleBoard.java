@@ -33,8 +33,7 @@ public class SlidePuzzleBoard {
     }
 	//가능 판정
 	public boolean possibleTest(){
-		//X = 무조건 홀수
-		//I 판정을 위해 막줄은 빼고 그 전은 col 다 판정 if(board[row][col] < board[row-][col-]
+		//I 판정을 위한 반복문 // I : 각 칸이 뒤에 있는 칸의 숫자들보다 큰 모든 경우의 수
 		int I = 0;
 		for (int row = 0; row < size; row++)
 			for (int col = 0; col < size; col++){
@@ -52,10 +51,8 @@ public class SlidePuzzleBoard {
 				}
 			}
 
-		//System.out.println(size +" " + I); I가 짝수면 가능 I가 홀수면 불가능
-		if ((size % 2 == 1) && (I % 2 == 0))
-			return true;
-		else return (size % 2 == 0) && (I % 2 == 0);
+		//System.out.println(size +" " + I); //I가 짝수면 가능 I가 홀수면 불가능
+		return (I % 2 == 0);
 	}
 
 	public void createPuzzleBoard(){

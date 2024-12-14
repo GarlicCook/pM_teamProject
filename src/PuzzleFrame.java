@@ -61,8 +61,4 @@ public class PuzzleFrame extends JFrame {
             button_board[board.getSize() - 1][board.getSize() - 1].setText("Done");
         }
     }
-
-    public void movingButton() {
-
-    }
 }
